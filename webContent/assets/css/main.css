@@ -1,0 +1,47 @@
+/*!
+    - Document: main.css
+    - Version : 1.0.0
+    - Author  : M. Boulhana
+    - Date    : Apr 09, 2021 03:20PM.
+ */
+
+/* Global Settings
+   ----------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Primary Layout Structure
+   ----------------------------- */
+body {
+  background-color: #fafafd;
+  font-family: "Poppins", sans-serif;
+  color: var(--black);
+}
+
+h1,h2,h3,h4,h5,h6 {
+	color: #0B0B0C !important;
+}
+
+/* Forms Custom Style
+   ----------------------------- */
+.auth-form {
+    max-width: 400px;
+    margin: auto;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: auto;
+}
+
+.input-field {
+    padding: 22px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Poppins", sans-serif;
+}

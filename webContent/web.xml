@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee" 
+         xmlns:web="http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee">
+   
+	<!-- Default Template Title -->
+	<context-param>
+		<param-name>websiteName</param-name>
+		<param-value>iBook Library</param-value>
+	</context-param>
+	<!-- Default Template Title -->
+	
+	<!-- Customizing HTTP Error Responses -->
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error/404.jsp</location>
+	</error-page>
+	<!-- Customizing HTTP Error Responses -->
+	
+	<!-- Configuring Implicit Includes at the Beginning of JSPs -->
+	<jsp-config>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<include-prelude>/WEB-INF/common/taglibs.jsp</include-prelude>
+		</jsp-property-group>
+	</jsp-config>
+	<!-- Configuring Implicit Includes at the Beginning of JSPs -->
+	
+</web-app>
