@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box
+}
+.shopping-total-card{
+	width: 400px;
+	margin: 50px auto;
+	overflow: hidden;
+	border-radius: 10px
+}
+.shopping-total-card-header{
+	height: auto;
+	background-color: #0979FA
+}
+.shopping-total-card-header h3{
+	height: auto;
+	margin: 0;
+	align-self: center;
+	color: #FFFFFF;
+	font-family: Poppins;
+	font-size: 30px;
+	line-height: 39px;
+	font-weight: 600
+}
+.shopping-total-card-list{
+	overflow: hidden
+}
+.shopping-total-card-item .txt, .shopping-total-card-footer .txt{
+	margin-bottom: 0;
+	color: #0B0B0C;
+	font-family: Poppins;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 35px
+}
+
+.shopping-total-card-footer{
+	height: auto;
+	background-color: #E0F0F6
+}
+.btn-prcd-chkot{
+	width: 400px;
+	height: 60px;
+	margin-top: -50px;
+	margin-left: 475.5px;
+	border-radius: 10px;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 22px;
+	align-items: center;
+	text-align: center;
+	letter-spacing: -0.18px;
+	text-transform: uppercase;
+	background: #0979FA; 
+	color: #FFFFFF
+}
+.btn-prcd-chkot:hover {
+	color: #FFFFFF;
+	opacity: 80%
+}
+
+
+
+
+
+
+
+

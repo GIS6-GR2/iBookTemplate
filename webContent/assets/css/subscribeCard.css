@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box
+}
+.subscribe-card{
+	width: 400px;
+	margin: 0px auto;
+	background-color: #E0F0F6;
+	overflow: hidden;
+	border-radius: 10px
+}
+.subscribe-card .card-body{
+	padding-left: 45px;
+	padding-right: 45px
+}
+.subscribe-card .card-title{
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 27px;
+}
+.subscribe-card .card-text{
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 24px;
+}
+.subscribe-card input{
+	height: 50px;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 24px;
+	border-radius: 7px
+}
+.subscribe-card button{
+	width: 250px;
+	height: 50px;
+	margin-top: 10px;
+	
+	background: rgba(9, 121, 250, 0.1);
+	border: 1px solid #0979FA;
+	box-sizing: border-box;
+	border-radius: 10px;
+	
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 22px;
+	text-align: center;
+	text-transform: uppercase;
+	color: #0979FA;
+	
+	border-radius: 10px
+}
+
+
+

@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box
+}
+.categ-card{
+	width: 400px;
+	margin: 50px auto;
+	overflow: hidden;
+	border-radius: 10px
+}
+.categ-card-header{
+	height: auto;
+	background-color: #0979FA
+}
+.categ-card-header h3{
+	height: auto;
+	margin: 0;
+	align-self: center;
+	color: #FFFFFF;
+	font-family: Poppins;
+	font-size: 30px;
+	line-height: 39px;
+	font-weight: 600
+}
+.categ-card-list{
+	overflow: hidden
+}
+.categ-card-item{
+	color: #0B0B0C;
+	font-family: Poppins;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 30px;
+	cursor: pointer
+}
+.categ-card-item:hover, .selected{
+	background-color: #E0F0F6
+}

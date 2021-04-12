@@ -14,7 +14,7 @@
 		font-weight: normal;
 		font-size: 15px;
 		color: #33334F;
-	}
+	} 
 	
 </style>
 <!-- Custom Style -->

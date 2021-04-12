@@ -55,7 +55,7 @@
         <!-- Submit Button -->
         <div class="mt-3">
           <button type="submit" class="btn btn-primary btn-block font-weight-normal" >
-            Sign Up
+            Proceed
           </button>
         </div>
 				<!-- Submit Button -->
