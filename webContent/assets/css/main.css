@@ -45,3 +45,30 @@ h1,h2,h3,h4,h5,h6 {
     font-weight: 500;
     font-family: "Poppins", sans-serif;
 }
+
+/* Home content Layout
+   ----------------------------- */
+
+.home-container{
+	display:grid;
+	grid-template-columns: auto auto auto auto auto;
+	grid-template-rows: auto auto auto auto;
+	column-gap: 10px;
+  	row-gap: 15px;
+  	
+}
+.header-side{
+	height: 300px;
+	grid-column: 1 /6;
+  	grid-row: 1 / 2;
+  	background-color: bisque;
+}
+.category-side{
+	grid-column: 1 / 2;
+  	grid-row:  2 / 4;
+}
+
+.the-books-side{
+	grid-column: 2 /  6;
+  	grid-row:  2 / 4;
+}
