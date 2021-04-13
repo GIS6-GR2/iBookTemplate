@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box
+}
+.total-card{
+	width: 400px;
+	margin: 50px auto;
+	overflow: hidden;
+	border-radius: 10px
+}
+
+.total-card-list{
+	overflow: hidden
+}
+.total-card .txt{
+	margin-bottom: 0;
+	color: #0B0B0C;
+	font-family: Poppins;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 35px
+}
+
+.total-card-footer{
+	height: auto;
+	background-color: #E0F0F6
+}
+
+
+
+/* ------------------------------ */
+
+
+.order-card, .order-card{
+	width: 600px;
+	margin: 50px auto;
+	overflow: hidden;
+	border-radius: 10px
+}
+
+.order-card-list{
+	overflow: hidden
+}
+
+.order-card .txt{
+	margin-bottom: 0;
+	color: #0B0B0C;
+	font-family: Poppins;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 35px;
+	display: inline-block;
+    margin-left: 10px;
+}
+
+.order-card .form-check-input{
+	position: inherit;
+	margin: 0;
+}
+
+.fa-paypal, .fa-wallet{
+	margin-left: 15px;
+}
+
+.order-card-footer{
+	height: auto;
+	background-color: #E0F0F6
+}
+.order-card-footer .txt{
+	width: 80%
+}
+
+.btn-order{
+	width: 100%;
+    height: 50px;
+    margin-top: 10px;
+	border-radius: 10px;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 22px;
+	align-items: center;
+	text-align: center;
+	letter-spacing: -0.18px;
+	text-transform: uppercase;
+	background: #0979FA; 
+	color: #FFFFFF 
+}
+.btn-order:hover {
+	color: #FFFFFF;
+	opacity: 80%
+}
+
+
+

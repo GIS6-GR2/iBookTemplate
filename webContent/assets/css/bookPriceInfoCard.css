@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box
+}
+.book-price-card, .book-info-card{
+	width: 400px;
+	margin: 50px auto;
+	overflow: hidden;
+	border-radius: 10px
+}
+.book-price-card-header{
+	height: auto;
+	background-color: #0979FA
+}
+.book-price-card-header .txt {
+	width: 40% !important;
+	margin-bottom: 0;
+	color: #0B0B0C;
+	font-family: Poppins;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 35px;
+	
+}
+.book-price-card-header h3{
+	width: 60% !important;
+	height: auto;
+	margin: 0;
+	text-align: right;
+	color: #FFFFFF;
+	font-family: Poppins;
+	font-size: 30px;
+	line-height: 39px;
+	font-weight: 600
+}
+.book-price-card-list{
+	overflow: hidden
+}
+.book-price-card-item .txt, .book-price-card-footer .txt{
+	margin-bottom: 0;
+	color: #0B0B0C;
+	font-family: Poppins;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 35px;
+	display: inline-block;
+    margin-left: 10px;
+}
+
+.book-price-card-footer{
+	height: auto;
+	background-color: #E0F0F6
+}
+.btn-add-to-cart{ 
+	width: 100%;
+    height: 50px;
+	border-radius: 10px;
+	font-family: Poppins;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 22px;
+	align-items: center;
+	text-align: center;
+	letter-spacing: -0.18px;
+	text-transform: uppercase;
+	background: #0979FA; 
+	color: #FFFFFF
+}
+.btn-add-to-cart:hover {
+	color: #FFFFFF;
+	opacity: 80%
+}
+.fa-check{
+	color: #33334F
+}
+.book-info-card .rtxt{
+	width: 40% !important;
+	margin-bottom: 0;
+	color: #0B0B0C;
+	font-family: Poppins;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 35px;
+	display: inline-block;
+    margin-left: 10px
+}
+.book-info-card .ltxt{
+	width: 60% !important; 
+	margin-bottom: 0;
+	color: #8786AD;
+	font-family: Poppins;
+	font-size: 15px;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 35px;
+	display: inline-block;
+    margin-left: 10px 
+}
+
+
+
