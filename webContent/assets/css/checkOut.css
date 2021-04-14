@@ -6,7 +6,7 @@
 }
 .total-card{
 	width: 400px;
-	margin: 50px auto;
+	margin-bottom: 25px;
 	overflow: hidden;
 	border-radius: 10px
 }
@@ -36,7 +36,7 @@
 
 .order-card, .order-card{
 	width: 600px;
-	margin: 50px auto;
+	margin-bottom: 25px;
 	overflow: hidden;
 	border-radius: 10px
 }
