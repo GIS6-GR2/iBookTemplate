@@ -1,0 +1,19 @@
+/*!
+    - Document: main.css
+    - Version : 1.0.0
+    - Author  : M. Boulhana
+    - Date    : Apr 09, 2021 03:20PM.
+ */
+
+ 
+.input-transparent {
+ 	border: none;
+	text-align: right;
+	font-size: 15px;
+	font-weight: normal;
+	color: black;
+}
+
+.input-transparent:focus {
+	box-shadow: none;
+}
