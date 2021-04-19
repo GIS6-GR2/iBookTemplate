@@ -19,7 +19,7 @@
             <div class="card">
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item d-flex align-items-center">
-						<div class="col text-muted font-weight-normal" style="font-size: 14px;">
+						<div class="col text-muted font-weight-normal" style="font-size: 14px; text-align: left;">
 							First Name
 						</div>
 						<div class="col input-group-prepend">
@@ -28,7 +28,7 @@
 					</li>
 					
 					<li class="list-group-item d-flex align-items-center">
-						<div class="col text-muted font-weight-normal" style="font-size: 14px;">
+						<div class="col text-muted font-weight-normal" style="font-size: 14px; text-align: left;">
 							Last Name
 						</div>
 						<div class="col input-group-prepend">
@@ -37,7 +37,7 @@
 					</li>
 					
 					<li class="list-group-item d-flex align-items-center">
-						<div class="col text-muted font-weight-normal" style="font-size: 14px;">
+						<div class="col text-muted font-weight-normal" style="font-size: 14px; text-align: left;">
 							City
 						</div>
 						<div class="col input-group-prepend">
@@ -46,7 +46,7 @@
 					</li>
 					
 					<li class="list-group-item d-flex align-items-center">
-						<div class="col text-muted font-weight-normal" style="font-size: 14px;">
+						<div class="col text-muted font-weight-normal" style="font-size: 14px; text-align: left;">
 							Address
 						</div>
 						<div class="col input-group-prepend">
@@ -55,7 +55,7 @@
 					</li>
 
 					<li class="list-group-item d-flex align-items-center">
-						<div class="col text-muted font-weight-normal" style="font-size: 14px;">
+						<div class="col text-muted font-weight-normal" style="font-size: 14px; text-align: left;">
 							Postal Code
 						</div>
 						<div class="col input-group-prepend">
@@ -64,7 +64,7 @@
 					</li>
 					
 					<li class="list-group-item d-flex align-items-center">
-						<div class="col text-muted font-weight-normal" style="font-size: 14px;">
+						<div class="col text-muted font-weight-normal" style="font-size: 14px; text-align: left;">
 							Phone
 						</div>
 						<div class="col input-group-prepend">
@@ -73,7 +73,7 @@
 					</li>
 					
 					<li class="list-group-item d-flex align-items-center">
-						<div class="col text-muted font-weight-normal" style="font-size: 14px;">
+						<div class="col text-muted font-weight-normal" style="font-size: 14px; text-align: left;">
 							Email Address
 						</div>
 						<div class="col input-group-prepend">

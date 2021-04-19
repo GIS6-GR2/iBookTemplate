@@ -7,16 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name="TestServlet", urlPatterns="/test")
-public class TestServlet extends HttpServlet {
+@WebServlet("/myProfile")
+public class MyProfile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public TestServlet() { 
+    public MyProfile() { 
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		this.getServletContext().getRequestDispatcher("/WEB-INF/view/home.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/view/myProfile.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
