@@ -1,0 +1,27 @@
+@charset "ISO-8859-1";
+
+body{
+	margin: 0;
+	padding: 0;
+}
+
+.list_group{
+	flex-basis:15%;
+	margin-right:5%; 
+}
+
+.container_table{
+	margin:0;
+	padding:0;
+	flex-basis:65%;
+	margin-top: 20%;
+}
+
+.div_inline{
+	display:flex;
+	justify-content: space-between;
+}
+
+.first_col{
+	align:center;
+}

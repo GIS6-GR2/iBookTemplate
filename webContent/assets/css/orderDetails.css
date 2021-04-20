@@ -1,0 +1,46 @@
+@charset "ISO-8859-1";
+
+
+body{
+	margin: 0;
+	padding: 0;
+	background-color:white; 
+}
+
+h5{
+	font-style:blod; 
+}
+
+.div_container{
+	margin-top:5%;
+	margin-bottom:10%;
+	display:flex;
+	justify-content: space-between;
+}
+.table-responsive,table table-borderless table-hover{
+	width: 70%;
+	border-radius: 5px;
+}
+.h2{
+	margin-top:5%;
+	font-family: serif;
+}
+h2{
+	font-family: serif;
+}
+
+span{
+	font-family:monospace;
+}
+
+.tfoot{
+	background-color:#E0F0F6;
+	border-radius: 5px;
+}
+
+.btn{
+	width: 230px;
+	border-radius: 10px;
+	background-color: DodgerBlue;
+	color: white;
+}
