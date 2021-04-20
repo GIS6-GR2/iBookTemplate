@@ -33,19 +33,14 @@
 	<div class="list_group">
 	<div class="card categ-card">
 		<div class="card-header categ-card-header">
-			<h3>Browse Categories</h3>
+			<h3>My Profile</h3>
 		</div>
 		<ul class="list-group list-group-flush categ-card-list">
-			<li class="list-group-item categ-card-item selected">All
-				Categories</li>
-			<li class="list-group-item categ-card-item">Family & Health</li>
-			<li class="list-group-item categ-card-item">Fitness & Diet</li>
-			<li class="list-group-item categ-card-item">Pre-School &
-				Day-Care</li>
-			<li class="list-group-item categ-card-item">Computing & IT</li>
-			<li class="list-group-item categ-card-item">Business &
-				Management</li>
-			<li class="list-group-item categ-card-item">Comedy & Humour</li>
+			<li class="list-group-item categ-card-item">Dashboard</li>
+			<li class="list-group-item categ-card-item selected">Orders History</li>
+			<li class="list-group-item categ-card-item">Billing address</li>
+			<li class="list-group-item categ-card-item">Account details</li>
+			<li class="list-group-item categ-card-item" style="color:red;">Logout</li>
 		</ul>
 	</div>
 </div>
