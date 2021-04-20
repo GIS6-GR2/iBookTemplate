@@ -20,12 +20,34 @@
   <body>
     <!-- Section: Header -->
     <jsp:include page="../common/header.jsp"></jsp:include>
+<div class="container">
+  <div class="input-group" >
+  <div class="badge" style="margin-top:150px;margin-left:200px">
+   
+ <div class="col-md-4 mb-3" >
+ <p class="h3"><B>Search books,fine art & collectibles </br>
+ offered by iBook library</B>
+ </p>   
+ </div>
+   
+    
+    
+   <div class="input-group" >
+ 
+  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+    aria-describedby="search-addon" />
+  <button type="button" class="btn btn-outline-primary">search</button>
+</div>
+    
+</div>
 
+      <img src="${pageContext.request.contextPath}/assets/images/header/headerImg.svg" class="rounded float-right" style="width:30%; height:30%;margin-left:130px;margin-top: 50px">
+  
+</div>
+</div>
     <!-- Section: Header -->
     
-    <div class="home-container">
-<div class="header-side">
-</div>
+
 
 	<div class="category-side ">
 	
