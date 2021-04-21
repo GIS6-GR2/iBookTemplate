@@ -40,10 +40,11 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 .input-field {
-    padding: 22px;
-    font-size: 14px;
-    font-weight: 500;
-    font-family: "Poppins", sans-serif;
+    height: 45px;
+	font-size: 14px;
+	font-weight: 500;
+	font-family: "Poppins", sans-serif;
+	padding-left: 15px;
 }
 
 /* Home content Layout

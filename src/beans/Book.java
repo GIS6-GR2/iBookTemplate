@@ -1,20 +1,19 @@
 package beans;
 
-import java.awt.Image;
-import java.sql.Date;
+import java.util.Date;
 
 public class Book {
 	
 	private int idBook;
 	private String name;
 	private String author;
-	private Image coverPicture;
+	private String coverPicture;
 	private String binding;
 	private String description;
-	private String price;
-	private String pageNumber;
-	private String height;
-	private String width;
+	private float price;
+	private int pageNumber;
+	private float height;
+	private float width;
 	private Date publicationDate;
 	private int idCategory;
 	
@@ -22,8 +21,8 @@ public class Book {
 		
 	}
 
-	public Book(String name, String author, Image coverPicture, String binding, String description, String price,
-			String pageNumber, String height, String width, Date publicationDate, int idCategory) {
+	public Book(String name, String author, String coverPicture, String binding, String description, float price,
+			int pageNumber, float height, float width, Date publicationDate, int idCategory) {
 		this.name = name;
 		this.author = author;
 		this.coverPicture = coverPicture;
@@ -61,11 +60,11 @@ public class Book {
 		this.author = author;
 	}
 
-	public Image getCoverPicture() {
+	public String getCoverPicture() {
 		return coverPicture;
 	}
 
-	public void setCoverPicture(Image coverPicture) {
+	public void setCoverPicture(String coverPicture) {
 		this.coverPicture = coverPicture;
 	}
 
@@ -85,35 +84,35 @@ public class Book {
 		this.description = description;
 	}
 
-	public String getPrice() {
+	public float getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 
-	public String getPageNumber() {
+	public int getPageNumber() {
 		return pageNumber;
 	}
 
-	public void setPageNumber(String pageNumber) {
+	public void setPageNumber(int pageNumber) {
 		this.pageNumber = pageNumber;
 	}
 
-	public String getHeight() {
+	public float getHeight() {
 		return height;
 	}
 
-	public void setHeight(String height) {
+	public void setHeight(float height) {
 		this.height = height;
 	}
 
-	public String getWidth() {
+	public float getWidth() {
 		return width;
 	}
 
-	public void setWidth(String width) {
+	public void setWidth(float width) {
 		this.width = width;
 	}
 
@@ -121,8 +120,8 @@ public class Book {
 		return publicationDate;
 	}
 
-	public void setPublicationDate(Date publicationDate) {
-		this.publicationDate = publicationDate;
+	public void setPublicationDate(Date pubdate) {
+		this.publicationDate = pubdate;
 	}
 
 	public int getIdCategory() {
@@ -132,5 +131,5 @@ public class Book {
 	public void setIdCategory(int idCategory) {
 		this.idCategory = idCategory;
 	}
-
+	
 }
