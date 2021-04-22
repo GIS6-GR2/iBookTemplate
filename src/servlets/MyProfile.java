@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.Dao;
 import dao.DaoFactory;
@@ -21,9 +22,10 @@ public class MyProfile extends HttpServlet {
         this.MyProfileDao = daoFactory.getDaoImp();
     }
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		HttpSession session = request.getSession(false);
 		
 		// set logged in user info
-		request.setAttribute("User", MyProfileDao.getAccountDetails("email@email.com"));
+		request.setAttribute("User", MyProfileDao.getAccountDetails((String)session.getAttribute("email")));
 		
 		// get logged in user account info
 		String	action =  request.getParameter("action"),
@@ -52,7 +54,7 @@ public class MyProfile extends HttpServlet {
 		}
 		
 		// set logged in user orders
-		request.setAttribute("OrdersHistory", MyProfileDao.getOrders("email@email.com"));
+		request.setAttribute("OrdersHistory", MyProfileDao.getOrders((String)session.getAttribute("email")));
 		
 		
 		this.getServletContext().getRequestDispatcher("/WEB-INF/view/myProfile.jsp").forward(request, response);

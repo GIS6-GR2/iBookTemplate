@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css"/>
 
     <!-- Page Title -->
-    <title>${initParam.websiteTitle} | Home</title>
+    <title>${initParam.websiteName} | Home</title>
   </head>
   <body>
 	  		<%  ArrayList<Book> books = (ArrayList<Book>) request.getAttribute("books"); %>

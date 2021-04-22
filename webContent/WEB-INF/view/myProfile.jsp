@@ -46,7 +46,7 @@
 			    	Account Details
 			    </li>
 			    <li class="list-group-item profile-menu-card-item text-danger">
-			    	Logout
+			    	<a href="${pageContext.request.contextPath}/redirect" class="text-danger">Log Out</a>
 			    </li>
 			  </ul>
 			</div>

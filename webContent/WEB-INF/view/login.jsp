@@ -23,7 +23,8 @@
 		
 	<!-- Login Form Container -->
     <div class="text-center">
-      <form class="auth-form">
+    
+      <form class="auth-form" action="login" method="post">
         <h3 class="mt-4 mb-2">Sign In</h3>
         
         <small class="text-muted">
@@ -33,16 +34,18 @@
         <div class="mt-4">
           <label class="sr-only" for="email">Email address</label>
           <input name="email" class="form-control input-field" placeholder="Email Address" required autofocus/>
+          <span style="color: red">${errorEmail}</span>
         </div>
 
         <div class="mt-2">
           <label class="sr-only" for="password">Password</label>
           <input type="password" name="password" class="form-control input-field" placeholder="Password" required/>
+          <span style="color: red">${errorPassword}</span>
         </div>
 
         <div class="mt-2 mr-2 text-right">
           <small>
-          	<a href="#">Forget Password ?</a>
+          	<a href="resetpwd">Forget Password ?</a>
           </small>
         </div>
         

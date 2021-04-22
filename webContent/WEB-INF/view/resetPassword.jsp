@@ -23,7 +23,7 @@
 		
 		<!-- Login Form Container -->
     <div class="text-center">
-      <form class="auth-form">
+      <form class="auth-form" action="resetpwd" method="post">
         <h3 class="mt-4 mb-2">Forgot password</h3>
         
         <!-- Caption -->
@@ -36,6 +36,7 @@
         <div class="mt-4">
           <label class="sr-only" for="email">Email address</label>
           <input name="email" class="form-control input-field" placeholder="Email Address" required autofocus/>
+          <span style="color: red">${invalidEmail}</span>
         </div>
 
         <div class="mt-3">

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css"/>
     
     <!-- Page Title -->
-    <title>${initParam.websiteTitle} | Register</title>
+    <title>${initParam.websiteName} | Register</title>
   </head>
   <body>
   	<!-- Section: Header -->
@@ -22,7 +22,7 @@
 		
 		<!-- Section: Register Form -->
     <div class="text-center">
-      <form class="auth-form">
+      <form class="auth-form" action="register" method="post">
         <h3 class="mt-4 mb-2">Sign Up</h3>
         
         <!-- Register Caption -->
@@ -42,17 +42,11 @@
   			</div>
         <!-- First & Last Name Inputs -->
         
-        <!-- Username Input -->
-        <div class="mt-2">
-          <label class="sr-only" for="username">Username</label>
-          <input name="username" class="form-control input-field" placeholder="Username" required/>
-        </div>
-        <!-- Username Input -->
-        
         <!-- Email Input -->
         <div class="mt-2">
           <label class="sr-only" for="email">Email address</label>
           <input name="email" class="form-control input-field" placeholder="Email address" required/>
+          <span style="color: red">${invalidEmail}</span>
         </div>
         <!-- Email Input -->
         
