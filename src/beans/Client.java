@@ -5,7 +5,8 @@ public class Client {
 	private int idClient;
 	private String firstName;
 	private String lastName;
-	private String phoneNumber;
+	private String phone;
+	private int postalCode;
 	private String city;
 	private String adress;
 	private String email;
@@ -14,17 +15,23 @@ public class Client {
 	public Client(String firstName, String lastName, String phoneNumber, String city, String adress, String email, String password) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.phoneNumber = phoneNumber;
+		this.phone = phoneNumber;
 		this.city = city;
 		this.adress = adress;
 		this.email = email;
 		this.password = password;
 	}
 
-	public Client() {
-		
+	public Client() { }
+
+	public int getPostalCode() {
+		return postalCode;
 	}
 
+	public void setPostalCode(int postalCode) {
+		this.postalCode = postalCode;
+	}
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -42,11 +49,11 @@ public class Client {
 	}
 
 	public String getPhoneNumber() {
-		return phoneNumber;
+		return phone;
 	}
 
 	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+		this.phone = phoneNumber;
 	}
 
 	public String getCity() {

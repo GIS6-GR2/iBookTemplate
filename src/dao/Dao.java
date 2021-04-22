@@ -5,13 +5,13 @@ import beans.*;
 
 public interface Dao {
 	List<Book> getAllBooks();
-	List<Book> getCategBooks(String categName);
+	List<Category> getAllCategories();	
+	Book getBookDetails(String idBook);
 	
 	void addNewBook(Book book);
 	List<Book> BooksList();
-
 	Admin getAdminParam();
-	
-	List<Category> categoriesWithId();
-	
+	List<Category> categoriesWithId();	
+	List<Client> getUser(String email);
+	void addUser(Client client);
 }

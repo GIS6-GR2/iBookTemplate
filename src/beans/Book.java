@@ -7,6 +7,7 @@ public class Book {
 	private int idBook;
 	private String name;
 	private String author;
+	private String nameCategory;
 	private String coverPicture;
 	private String binding;
 	private String description;
@@ -36,6 +37,14 @@ public class Book {
 		this.idCategory = idCategory;
 	}
 
+	public String getNameCategory() {
+		return nameCategory;
+	}
+
+	public void setNameCategory(String nameCategory) {
+		this.nameCategory = nameCategory;
+	}
+	
 	public int getIdBook() {
 		return idBook;
 	}

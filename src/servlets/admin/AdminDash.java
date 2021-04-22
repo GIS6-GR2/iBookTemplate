@@ -26,7 +26,7 @@ import dao.DaoFactory;
 @MultipartConfig(fileSizeThreshold = 1048576, maxFileSize = 10485760, maxRequestSize = 52428800)
 public class AdminDash extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public static final String _UPLOAD_PATH = "C:\\Users\\Mouaad Blhn\\Desktop";
+	public static final String _UPLOAD_PATH = "C://";
 	private Dao dao;
 	
     public AdminDash() { super(); }

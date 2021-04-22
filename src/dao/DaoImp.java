@@ -1,7 +1,6 @@
 package dao;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +11,7 @@ import java.util.List;
 import beans.Admin;
 import beans.Book;
 import beans.Category;
+import beans.Client;
 
 public class DaoImp implements Dao {
 
@@ -30,7 +30,7 @@ public class DaoImp implements Dao {
         try {
         	connexion = daoFactory.getConnection();
             preparedStatement = connexion.prepareStatement(  
-			        "select * from book");
+			        "select * from book,category where book.Id_category = category.Id_category ");
             ResultSet res = preparedStatement.executeQuery();
 	        
 	        while(res.next()) {
@@ -47,6 +47,7 @@ public class DaoImp implements Dao {
 	        	b.setWidth(res.getFloat(10));
 	        	b.setPublicationDate(res.getDate(11));
 	        	b.setIdCategory(res.getInt(12));
+	        	b.setNameCategory(res.getString(14));
 	        	books.add(b);
 	        }
 			
@@ -57,10 +58,6 @@ public class DaoImp implements Dao {
         return books;
 	}
 
-	@Override
-	public List<Book> getCategBooks(String categName) {
-		return null;
-	}
 
 	@Override
 	public void addNewBook(Book book) {
@@ -172,6 +169,114 @@ public class DaoImp implements Dao {
 				e.printStackTrace();
 			}
 	        return categories;
+	}
+
+	@Override
+	public List<Category> getAllCategories() {
+		List<Category> categories = new ArrayList<Category>();
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        try {
+				connexion = daoFactory.getConnection();
+	        preparedStatement = connexion.prepareStatement(  
+			        "select * from category");
+	        ResultSet res = preparedStatement.executeQuery();
+	        while(res.next()) {
+	        	Category c = new Category();
+	        	c.setIdCategory(res.getInt(1));
+	        	c.setName(res.getString(2));
+	        	categories.add(c);
+	        }
+	        
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+        return categories;
+		
+	}
+
+	@Override
+	public List<Client> getUser(String email) {
+
+		List<Client> users = new ArrayList<Client>();
+		Connection connection;
+		PreparedStatement preparedStatement;
+		try {
+			connection = daoFactory.getConnection();
+			preparedStatement = connection.prepareStatement("select * from client where email = ?");
+			preparedStatement.setString(1, email);
+			ResultSet res = preparedStatement.executeQuery();
+
+			while (res.next()) {
+				Client c = new Client();
+				c.setIdClient(res.getInt(1));
+				c.setFirstName(res.getString(2));
+				c.setLastName(res.getString(3));
+				c.setPhoneNumber(res.getString(4));
+				c.setCity(res.getString(5));
+				c.setAdress(res.getString(6));
+				c.setPostalCode(res.getInt(7));
+				c.setEmail(res.getString(8));
+				c.setPassword(res.getString(9));
+				users.add(c);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		return users;
+	}
+
+	@Override
+	public void addUser(Client client) {
+		Connection connection;
+		PreparedStatement preparedStatement;
+		try {
+			connection = daoFactory.getConnection();
+			preparedStatement = connection.prepareStatement("insert into client (first_name, last_name, email, password) values (?,?,?,?)");
+			preparedStatement.setString(1, client.getFirstName());
+			preparedStatement.setString(2, client.getLastName());
+			preparedStatement.setString(3, client.getEmail());
+			preparedStatement.setString(4, client.getPassword());
+			preparedStatement.execute();
+			connection.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
+	public Book getBookDetails(String idBook) {
+		Book b = new Book();
+		Connection connection;
+		PreparedStatement preparedStatement;
+			try {
+				connection = daoFactory.getConnection();
+				preparedStatement = connection.prepareStatement("select * from book where Id_Book = ?");
+				preparedStatement.setString(1, idBook);
+				ResultSet res = preparedStatement.executeQuery();
+	
+				while (res.next()) {
+					b.setIdBook(res.getInt(1));
+		        	b.setName(res.getString(2));
+		        	b.setAuthor(res.getString(3));
+		        	b.setCoverPicture(res.getString(4));
+		        	b.setBinding(res.getString(5));
+		        	b.setDescription(res.getString(6));
+		        	b.setPrice(res.getFloat(7));
+		        	b.setPageNumber(res.getInt(8));
+		        	b.setHeight(res.getFloat(9));
+		        	b.setWidth(res.getFloat(10));
+		        	b.setPublicationDate(res.getDate(11));
+		        	b.setIdCategory(res.getInt(12));
+		        	b.setNameCategory(res.getString(14));
+				}
+	
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		return b;
 	}
 	
 }
