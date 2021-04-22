@@ -1,4 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
+
+<c:if test="${ !empty sessionScope.admin }"></c:if>
 <!DOCTYPE html>
 <html>
   <head>
@@ -67,13 +69,8 @@
 							<li id="addressBtn" class="list-group-item profile-menu-card-item menu-btn" onclick="switchSection('categories')">
 								Categories
 							</li>
-							
-							<li  id="acDetailsBtn" class="list-group-item profile-menu-card-item menu-btn" onclick="switchSection('orders')">
-								Orders
-							</li>
-							
 							<li class="list-group-item profile-menu-card-item text-danger">
-								Log Out
+								<a href="${pageContext.request.contextPath}/logout" class="text-danger">Log Out</a>
 							</li>
 						</ul>
 					</div>
@@ -110,10 +107,9 @@
 										<label style="font-size: 14px;" class="input-group-text" for="category">Categories</label>
 									</div>
 									<select style="font-size: 14px; height: 45px;" class="custom-select" id="category" name="category">
-									    <option value="1">One</option>
-									    <option value="2">Two</option>
-									    <option value="3">Three</option>
-									    <option value="4">Four</option>
+									    <c:forEach var="category" items="${categories}">
+											<option value="<c:out value="${category.idCategory}"/>"><c:out value="${category.name}"/></option>
+										</c:forEach>
 									</select>
 								</div>
 						        

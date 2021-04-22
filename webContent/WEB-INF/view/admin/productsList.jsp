@@ -13,69 +13,32 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Bonkers for Bundt Cakes</td>
-      <td>John Smith</td>
-      <td>98.25 Dhs</td>
-      <td>
-		<div class="btn-group">
-			<div class="">
-				<button class="btn btn-link font-weight-normal" >
-					<i class="fas fa-trash"></i>
-				</button>
-			</div>
-			
-			<div class="">
-				<button type="reset" class="btn btn-link font-weight-normal" >
-					<i class="far fa-edit"></i>
-				</button>
-			</div>
-		</div>
-	  </td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Ramona Quimby, Age 8</td>
-      <td>John Smith</td>
-      <td>98.25 Dhs</td>
-      <td>
-		<div class="btn-group">
-			<div class="">
-				<button class="btn btn-link font-weight-normal" >
-					<i class="fas fa-trash"></i>
-				</button>
-			</div>
-			
-			<div class="">
-				<button type="reset" class="btn btn-link font-weight-normal" >
-					<i class="far fa-edit"></i>
-				</button>
-			</div>
-		</div>
-	  </td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>The Mystery of the Parsee Lawyer</td>
-      <td>John Smith</td>
-      <td>98.25 Dhs</td>
-      <td>
-		<div class="btn-group">
-			<div class="">
-				<button class="btn btn-link font-weight-normal" >
-					<i class="fas fa-trash"></i>
-				</button>
-			</div>
-			
-			<div class="">
-				<button type="reset" class="btn btn-link font-weight-normal" >
-					<i class="far fa-edit"></i>
-				</button>
-			</div>
-		</div>
-	  </td>
-    </tr>
+  
+	<c:forEach var="book" items="${books}">
+		<tr>
+			<th scope="row"><c:out value="${book.idBook}"/></th>
+			<td><c:out value="${book.name}"/></td>
+			<td><c:out value="${book.author}"/></td>
+			<td><c:out value="${book.price}"/> Dhs</td>
+			<td>
+				<div class="btn-group">
+					<div class="">
+						<button class="btn btn-link font-weight-normal" >
+							<i class="fas fa-trash"></i>
+						</button>
+					</div>
+				
+					<div class="">
+						<button type="reset" class="btn btn-link font-weight-normal" >
+							<i class="far fa-edit"></i>
+						</button>
+					</div>
+				</div>
+			</td>
+		</tr>
+
+    </c:forEach>
+ 
   </tbody>
 </table>
 </div>				  	  		

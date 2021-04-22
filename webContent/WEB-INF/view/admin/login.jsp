@@ -20,7 +20,7 @@
 	
 	<!-- Login Form Container -->
     <div class="container text-center d-flex align-items-center " style="height:70vh;">
-		<form class="auth-form">
+		<form class="auth-form" method="post" action="admin">
 			<h3 class="mt-4 mb-2">Admin Dashboard</h3>
 	        
 	        <small class="text-muted">
