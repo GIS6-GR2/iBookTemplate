@@ -5,33 +5,28 @@ public class Client {
 	private int idClient;
 	private String firstName;
 	private String lastName;
-	private String phone;
-	private int postalCode;
+	private String phoneNumber;
 	private String city;
 	private String adress;
+	private int postalCode;
 	private String email;
 	private String password;
 
-	public Client(String firstName, String lastName, String phoneNumber, String city, String adress, String email, String password) {
+	public Client(String firstName, String lastName, String phoneNumber, String city, String adress, int postalCode, String email, String password) {
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.phone = phoneNumber;
+		this.phoneNumber = phoneNumber;
 		this.city = city;
 		this.adress = adress;
+		this.postalCode = postalCode;
 		this.email = email;
 		this.password = password;
 	}
 
-	public Client() { }
-
-	public int getPostalCode() {
-		return postalCode;
+	public Client() {
+		
 	}
 
-	public void setPostalCode(int postalCode) {
-		this.postalCode = postalCode;
-	}
-	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -49,11 +44,11 @@ public class Client {
 	}
 
 	public String getPhoneNumber() {
-		return phone;
+		return phoneNumber;
 	}
 
 	public void setPhoneNumber(String phoneNumber) {
-		this.phone = phoneNumber;
+		this.phoneNumber = phoneNumber;
 	}
 
 	public String getCity() {
@@ -94,6 +89,14 @@ public class Client {
 
 	public void setIdClient(int idClient) {
 		this.idClient = idClient;
+	}
+
+	public int getPostalCode() {
+		return postalCode;
+	}
+
+	public void setPostalCode(int postalCode) {
+		this.postalCode = postalCode;
 	}
 	
 	

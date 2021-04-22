@@ -1,3 +1,4 @@
+<%@page import="beans.*"%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -16,8 +17,13 @@
 
   </head>
   <body>
-  
-  
+
+	  <!-- Section: Header -->
+	  <jsp:include page="../common/header.jsp"></jsp:include>
+	  <!-- Section: Header -->
+  		
+  	  <% Client user = (Client) request.getAttribute("User"); %>
+  		
 	  <main>
 	  
 		  <aside id="side-bar">
@@ -27,16 +33,16 @@
 			  	<h3>My Profile</h3>
 			  </div>
 			  <ul class="list-group list-group-flush profile-menu-card-list" id="profile-menu">
-			    <li class="list-group-item profile-menu-card-item menu-btn selected" onclick="switchSection('dashboard')">
+			    <li class="list-group-item profile-menu-card-item menu-btn selected" onclick="switchSection('dashboard', 'cdashboard')">
 			    	Dashboard
 			    </li>
-			    <li id="orderBtn" class="list-group-item profile-menu-card-item menu-btn" onclick="switchSection('orders-history')">
+			    <li id="orderBtn" class="list-group-item profile-menu-card-item menu-btn" onclick="switchSection('orders-history', 'corders')">
 			    	Orders History
 			    </li>
-			    <li id="addressBtn" class="list-group-item profile-menu-card-item menu-btn" onclick="switchSection('billing-address')">
+			    <li id="addressBtn" class="list-group-item profile-menu-card-item menu-btn" onclick="switchSection('billing-address', 'caddress')">
 			    	Billing Address
 			    </li>
-			    <li  id="acDetailsBtn" class="list-group-item profile-menu-card-item menu-btn" onclick="switchSection('account-details')">
+			    <li  id="acDetailsBtn" class="list-group-item profile-menu-card-item menu-btn" onclick="switchSection('account-details', 'caccount')">
 			    	Account Details
 			    </li>
 			    <li class="list-group-item profile-menu-card-item text-danger">
@@ -47,12 +53,11 @@
 			<!-- Profile Menu Card End -->
 		  </aside>
 		  
-	  	  <article id="main-content">
+	  	  <article id="main-content" style="height: 250px;">
 	  	  	<section class="active-section" id="dashboard">
 	  	  		<h2 style="margin-top: 10px;">Dashboard</h2> 
 	  	  		<p style="margin-bottom: 30px; font-size: 15px; color: #8786AD;">From your account dashboard you can view your recent orders, manage your shipping and billing addresses, and edit your password and account details.</p>
-	  	  		
-	  	  		<div class="dashboard-cards">
+	  	  		<div class="dashboard-cards section-content" id="cdashboard" >
 	  	  			<div class="ds-card" style="margin-left: 0" onclick="goTo('orderBtn')">
 		  	  			<svg width="50" height="50" viewBox="0 0 76 76" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M19 6.33337L9.5 19V63.3334C9.5 65.0131 10.1673 66.624 11.355 67.8117C12.5427 68.9995 14.1536 69.6667 15.8333 69.6667H60.1667C61.8464 69.6667 63.4573 68.9995 64.645 67.8117C65.8327 66.624 66.5 65.0131 66.5 63.3334V19L57 6.33337H19Z" stroke="#0979FA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -76,18 +81,18 @@
 	  	  				<br>Account Details
 	  	  			</div>
 	  	  		</div>
-	  	  		
 	  	  	</section>
 	  	  	<section id="orders-history">
 	  	  		<h2 style="margin-top: 10px;margin-bottom: 30px">Orders</h2>
+	  	  		<div id="corders"><jsp:include page="./orders.jsp"></jsp:include></div>
 	  	  	</section>
 	  	  	<section id="billing-address">
 	  	  		<h2>Address</h2>
 	  	  		<h5 style="margin-bottom: 30px">Billing address</h5>
-				<jsp:include page="./billingAddress.jsp"></jsp:include>												
+				<div id="caddress"><jsp:include page="./billingAddress.jsp"></jsp:include></div>											
 	  	  	</section>
 	  	  	<section id="account-details">
-	  	  		<jsp:include page="./myAccountForms.jsp"></jsp:include> 
+	  	  		<div id="caccount"><jsp:include page="./myAccountForms.jsp"></jsp:include></div>
 	  	  	</section>
 	  	  </article>
 	  
@@ -104,6 +109,7 @@
 	<script>
 		var menu = document.getElementById("profile-menu");
 		var menuBtns = menu.getElementsByClassName("menu-btn");
+		
 		for (var i = 0; i < menuBtns.length; i++) {
 			menuBtns[i].addEventListener("click", function() {
 		  var selected = document.getElementsByClassName("selected");
@@ -112,16 +118,57 @@
 		  });
 		}
 		
-		function switchSection(sectionId) {
+		
+		function switchSection(sectionId, contentId) {
 			var section = document.getElementById(sectionId);
 			var activeSection = document.getElementsByClassName("active-section");
 			activeSection[0].className = activeSection[0].className.replace("active-section", "");
 			section.className += "active-section";
+			
+			var container = document.getElementById("main-content");
+			//var content = section.getElementsByClassName("section-content")[0];
+			//container.style.height = document.getElementById(contentId).clientHeight;
+			 			
+			
+			if (contentId == 'cdashboard') {
+				container.style.height = '250px';
+			}
+			else if (contentId == 'corders') {
+				container.style.height = '600px'; 
+				container.style.height = document.getElementById('corders').clientHeight; 
+			}
+			else if (contentId == 'caddress') {
+				container.style.height = '600px';
+			}
+			else if (contentId == 'caccount') {
+				container.style.height = '500px';
+			}
+			
 		}
 		function goTo(dir) {
 			var btn = document.getElementById(dir);
 			btn.click();
 		}
+		
+		
+		
+		
+		var inputContainer = document.getElementById("main-content");
+		var inputs = inputContainer.getElementsByClassName("inpt");
+		
+		for (var i = 0; i < inputs.length; i++) {
+			inputs[i].addEventListener("change", function() {
+			  var saveBtn = inputContainer.getElementsByClassName("save-btn");
+			  for (var j = 0; j < saveBtn.length; j++) {
+			  	saveBtn[j].removeAttribute('disabled');
+			  }
+		    });
+		}
+		
+		
+		
+		
+		
 	</script>
 
   </body>

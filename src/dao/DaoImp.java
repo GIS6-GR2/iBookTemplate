@@ -12,6 +12,7 @@ import beans.Admin;
 import beans.Book;
 import beans.Category;
 import beans.Client;
+import beans.Command;
 
 public class DaoImp implements Dao {
 
@@ -135,10 +136,10 @@ public class DaoImp implements Dao {
         try {
             connexion = daoFactory.getConnection();
             statement = connexion.createStatement();
-            resultat = statement.executeQuery("SELECT username, password FROM Admin;");
+            resultat = statement.executeQuery("SELECT email_address, password FROM Admin;");
 
             while (resultat.next()) {
-            	String username = resultat.getString("username");
+            	String username = resultat.getString("email_address");
                 String password = resultat.getString("password");
                 
                 admin.setEmail(username);
@@ -278,5 +279,181 @@ public class DaoImp implements Dao {
 			}
 		return b;
 	}
+
+	
+	
+	@Override
+	public Client getAccountDetails(String email) {
+		
+		Client user = null;
+		
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        try {
+        	
+        	connexion = daoFactory.getConnection();
+        	
+            preparedStatement = connexion.prepareStatement(
+			        "select * from Client where email = '" + email + "'");
+            ResultSet res = preparedStatement.executeQuery();
+	        
+	        while(res.next()) {
+	        	user = new Client(
+	        			res.getString(2),
+	        			res.getString(3),
+	        			res.getString(4),
+	        			res.getString(5),
+	        			res.getString(6),
+	        			res.getInt(7),
+	        			res.getString(8), 
+	        			res.getString(9)
+	        			);
+	        	user.setIdClient(res.getInt(1));
+	        }
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return user;
+	}
+	
+	@Override
+	public boolean updateProfile(String idUser, String firstName, String lastName, String email, String password, String newPwd, String confirmPwd) {
+		
+		String initPwd = null;
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        try {
+        	
+        	connexion = daoFactory.getConnection();
+        	
+            preparedStatement = connexion.prepareStatement(  
+			        "select password from Client where Id_Client = '" + idUser + "'");
+            ResultSet res = preparedStatement.executeQuery();
+	        
+	        while(res.next()) {
+	        	initPwd = res.getString("password");
+	        }
+	        
+	        String sqlUpdateInfo = "UPDATE Client "
+	                + "SET first_name = ?, "
+	                + "last_name = ?, "
+	                + "email = ? "
+	                + "WHERE Id_Client = ?";
+	        
+	        preparedStatement = connexion.prepareStatement(sqlUpdateInfo);
+	        
+	        preparedStatement.setString(1, firstName);
+	        preparedStatement.setString(2, lastName);
+	        preparedStatement.setString(3, email);
+	        preparedStatement.setString(4, idUser);
+			
+	        preparedStatement.executeUpdate();
+	        
+	        
+	        if(password.equals(initPwd) && !password.isEmpty() && newPwd.equals(confirmPwd) && !newPwd.isEmpty()) {
+	        	String sqlUpdatePwd = "UPDATE Client "
+		                + "SET password = ? "
+		                + "WHERE Id_Client = ?";
+		        
+		        preparedStatement = connexion.prepareStatement(sqlUpdatePwd);
+		        
+		        preparedStatement.setString(1, newPwd);
+		        preparedStatement.setString(2, idUser);
+				
+		        preparedStatement.executeUpdate();
+	        }
+	        
+	        
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+	}
+
+	@Override
+	public boolean updateAddress(String idUser, String firstName, String lastName, String city, String address,
+			String postalCode, String phone, String email) {
+		
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        try {
+        	
+        	connexion = daoFactory.getConnection();
+        	
+	        
+	        String sqlUpdateInfo = "UPDATE Client "
+	                + "SET first_name = ?, "
+	                + "last_name = ?, "
+	                + "city = ?, "
+	                + "address = ?, "
+	                + "postal_code = ?, "
+	                + "phone = ?, "
+	                + "email = ? "
+	                + "WHERE Id_Client = ?";
+	        
+	        preparedStatement = connexion.prepareStatement(sqlUpdateInfo);
+	        
+	        preparedStatement.setString(1, firstName);
+	        preparedStatement.setString(2, lastName);
+	        preparedStatement.setString(3, city);
+	        preparedStatement.setString(4, address);
+	        preparedStatement.setString(5, postalCode);
+	        preparedStatement.setString(6, phone);
+	        preparedStatement.setString(7, email);
+	        preparedStatement.setString(8, idUser);
+			
+	        preparedStatement.executeUpdate();
+	        
+	        
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
+	}
+	
+	@SuppressWarnings("null")
+	@Override
+	public List<Command> getOrders(String email) {
+		List<Command> orders = new ArrayList<Command>();
+		
+		Connection connexion = null;
+        PreparedStatement preparedStatement = null;
+        try {
+        	
+        	connexion = daoFactory.getConnection();
+        	
+            preparedStatement = connexion.prepareStatement(
+            		"select Id_command, total_price, status "
+			        + "from Command "
+			        + "inner join Client "
+			        + "on Command.Id_Client = Client.Id_Client "
+			        + "and Client.email = '"+ email +"'"
+			        + " order by status desc");
+            ResultSet res = preparedStatement.executeQuery();
+	        
+            
+	        while(res.next()) {
+	        	Command order = new Command();
+	        	
+	        	order.setIdCommand(res.getInt(1));
+	        	order.setTotalPrice(res.getDouble(2));
+	        	order.setState(res.getString(3));
+	        
+	        	orders.add(order);
+	        }
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return orders;
+	}
+
 	
 }

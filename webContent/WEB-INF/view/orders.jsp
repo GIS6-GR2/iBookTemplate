@@ -1,99 +1,42 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
+<%@page import="beans.*"%>
+<%@page import="java.util.ArrayList"%>
 <!-- Bootstrap CSS -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/includes/bootstrap.min.css" />
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/categoryCard.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/includes/bootstrap.min.css" />
 <!-- Required CSS Files -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/main.css" />
-	<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/assets/css/orders.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/orders.css" />
 
-<title>Orders</title>
+	
+<div class="container_table section-content">
 
+<div class="table-responsive">
 
-
-</head>
-<body>
-
-<div class="container">
-	<!-- Section: Header -->
-	<jsp:include page="../common/header.jsp"></jsp:include>
-
-	<!-- Section: Header -->
-
-<div class="div_inline">
-	<!--list_group -->
-	<div class="list_group">
-	<div class="card categ-card">
-		<div class="card-header categ-card-header">
-			<h3>My Profile</h3>
-		</div>
-		<ul class="list-group list-group-flush categ-card-list">
-			<li class="list-group-item categ-card-item">Dashboard</li>
-			<li class="list-group-item categ-card-item selected">Orders History</li>
-			<li class="list-group-item categ-card-item">Billing address</li>
-			<li class="list-group-item categ-card-item">Account details</li>
-			<li class="list-group-item categ-card-item" style="color:red;">Logout</li>
-		</ul>
+	<table class="table table-borderless table-hover">
+		<thead class="table" style="background-color:#E0F0F6;">
+			<tr>
+				<th > &nbsp &nbsp Order ID</th>
+				<th>Status</th>
+				<th>Total Price</th>
+			</tr>
+		</thead>
+		<tbody style="background-color:#FFFFFF;">
+			
+			<%
+				ArrayList<Command> orders = (ArrayList<Command>) request.getAttribute("OrdersHistory");
+				
+				for(int i=0; i<orders.size(); i++){
+					out.print("<tr><td > &nbsp &nbsp #"+ orders.get(i).getIdCommand() +"</td>");
+					out.print("<td>"+ orders.get(i).getState() +"</td>");
+					out.print("<td>"+ orders.get(i).getTotalPrice() +"Dhs</td></tr>");
+				}
+				
+				if(orders.size() == 0){
+					out.print("<h6 class='text-danger'>No orders yet !!!</h6>");
+				}
+				
+			%>
+			
+		</tbody>
+	</table>
 	</div>
 </div>
-	<!-- Table -->
-	
-	<div class="container_table">
-		<h1>Orders</h1>
-
-	<div class="table-responsive">
-
-		<table class="table table-borderless table-hover" style="border:1px solid lightblue;border-radius:20px;">
-			<thead class="table" style="background-color:#E0F0F6;">
-				<tr>
-					<th > &nbsp &nbsp Order ID</th>
-					<th>Status</th>
-					<th>Total Price</th>
-				</tr>
-			</thead>
-			<tr>
-				<td > &nbsp &nbsp #123</td>
-				<td>Delivered</td>
-				<td>100.50Dhs</td>
-			</tr>
-			<tr>
-				<td > &nbsp &nbsp #124</td>
-				<td>Processing</td>
-				<td>110.50Dhs</td>
-			</tr>
-			<tr>
-				<td > &nbsp &nbsp #125</td>
-				<td>Delivered</td>
-				<td>1800.50Dhs</td>
-			</tr>
-			<tr>
-				<td > &nbsp &nbsp #126</td>
-				<td>Processing</td>
-				<td>108.50Dhs</td>
-			</tr>
-			<tr>
-				<td >  &nbsp &nbsp #127</td>
-				<td>Processing</td>
-				<td>200.50Dhs</td>
-			</tr>
-		</table>
-		</div>
-	</div>
-	</div>
-
-
-
-	<!-- Section: Footer -->
-	<jsp:include page="../common/footer.jsp"></jsp:include>
-	<!-- Section: Footer -->
-	</div>
-</body>
-</html>

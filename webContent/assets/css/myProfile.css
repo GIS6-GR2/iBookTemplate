@@ -24,7 +24,7 @@ main{
 #main-content{
 	position: relative;
 	width: 60%;
-	height: 550px;  
+	height: 600px;  
 	float: right;
 }
 
@@ -44,7 +44,7 @@ main{
 	padding-block: 20px;
 	float: left;
 	text-align: center;
-	margin-inline: 50px;
+	margin-inline: 49px;
 	background: rgba(9, 121, 250, 0.1);
 	border-radius: 10px;
 	cursor: pointer
@@ -106,4 +106,3 @@ profile-menu-card-header{
 .profile-menu-card-item:hover, .selected{
 	background-color: #E0F0F6 !important
 }
-/* ----------------------------------------- */

@@ -5,7 +5,12 @@ body{
 	padding: 0;
 }
 
-.list_group{
+.table{
+	overflow: hidden !important;
+    border-radius: 10px !important;
+}
+
+.list_group{ 
 	flex-basis:15%;
 	margin-right:5%; 
 }
@@ -13,8 +18,7 @@ body{
 .container_table{
 	margin:0;
 	padding:0;
-	flex-basis:65%;
-	margin-top: 20%;
+	flex-basis:65%
 }
 
 .div_inline{
