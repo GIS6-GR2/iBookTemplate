@@ -18,7 +18,7 @@ public class DaoFactory {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		DaoFactory instance = new DaoFactory("jdbc:mysql://127.0.0.1/ibook_db","root","");
+		DaoFactory instance = new DaoFactory("jdbc:mysql://127.0.0.1/ibook_db","root","oufrad 2020");
 		return instance;
 	}
 	

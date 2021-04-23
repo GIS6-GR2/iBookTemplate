@@ -1,3 +1,5 @@
+<%@page import="servlets.BookDetailsServlet"%>
+<%@page import="beans.*"%>
 <!DOCTYPE html>
 <html>
 
@@ -13,7 +15,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/shoppingTotalCard.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bookPriceInfoCard.css"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/checkOut.css"/> 
-	<title>Insert title here</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/Books_list.css"/> 
+	<title>Book Details</title>
 </head>
 
 <body>
@@ -21,16 +24,15 @@
 	<jsp:include page="../common/header.jsp"></jsp:include>
 	<!-- Header Section-->
 	
+<%  Book bookDetails = (Book) request.getAttribute("bookDetails"); %>
 
-	
 	<!-- Book Details & Pricing Section-->
 	<div class="container mt-5">
 		<div class="row">
 			<!-- Left Column -->
 		<div class="col-lg-8">
 			
-				<h3>The Mystery of the Parsee Lawyer Arthur Conan Doyle, George
-					Edalji and the Case of the Foreigner in the English</h3>
+				<h3><%= bookDetails.getName() %></h3>
 					
 				<div class="input-group">
 					<p class="text-secondary">by </p>
@@ -40,7 +42,7 @@
 			<div class="row">
 				
 				<div class="col-sm-3">
-					<img src="https://covers.zlibcdn2.com/covers/books/5a/99/56/5a9956dedae2d2d9f2c27732111084c5.jpg" class="img-thumbnail">
+					<img src="./assets/images/books/<%=bookDetails.getCoverPicture()%>.jpg" class="img-thumbnail">
 				</div>
 				
 				<div class="col-sm-9">
@@ -57,18 +59,18 @@
 						<h5 class="font-weight-bold">Product Details</h5>
 						Category:
 						<span class="text-secondary">
-							Something</span></br>Binding:
-						<span class="text-secondary">Hardcover</span></br>
+							<%= bookDetails.getNameCategory() %></span></br>Binding:
+						<span class="text-secondary"><%= bookDetails.getBinding() %></span></br>
 						Publication date:
 						<span class="text-secondary">03/30/2021</span></br>
 						Pages:
-						<span class="text-secondary">320</span></br>
+						<span class="text-secondary"><%= bookDetails.getPageNumber() %></span></br>
 						Height:
 						<span class="text-secondary">1.10IN</span></br>
 						Width:
 						<span class="text-secondary">4.50IN</span></br>
 						Author:
-						<span class="text-secondary">Hanif Abdurraqib</span></br>
+						<span class="text-secondary"><%= bookDetails.getAuthor() %></span></br>
 					</div>
 				</div>
 			</div>
@@ -82,7 +84,7 @@
 				<div class="card book-price-card">
 					<div class="card-header book-price-card-header d-flex">
 						<div class="w-100 txt" style="color: #FFFFFF">Book price</div>
-						<h3>Dhs 10.99</h3>
+						<h3><%= bookDetails.getPrice() %></h3>
 					</div>
 					<ul class="list-group list-group-flush shopping-total-card-list">
 						<li class="list-group-item book-price-card-item">
@@ -113,7 +115,7 @@
 						</li>
 						<li class="list-group-item book-info-card-item d-flex">
 							<div class="w-100 ltxt">Category</div>
-							<div class="flex-shrink-1 rtxt">Psychology</div>
+							<div class="flex-shrink-1 rtxt"><%= bookDetails.getNameCategory() %></div>
 						</li>
 						<li class="list-group-item book-info-card-item d-flex">
 							<div class="w-100 ltxt">Language</div>
@@ -133,45 +135,45 @@
 
 	<div class="container mt-5">
 				<div class="row mb-3">
-					<%for(int i=0;i<4;i++){ %>
-					<div class="col-md-3 p-2 text-center card">
-						<div class="page-inner">
-							<div class="row">
-								<div class="el-wrapper">
-									<div class="box-up">
-										<img style="width:170px;"
-											src="https://covers.zlibcdn2.com/covers/books/5a/99/56/5a9956dedae2d2d9f2c27732111084c5.jpg">
-										<div class="img-info mt-2 mb-2">
-											<div class="info-inner">
-												<span class="p-name"><strong>The Hero with a Thousand Faces</strong></span>
-												<span class="p-categorie text-muted" style="font-size:14px;">psychology</span>
-											</div>
-											<div class="a-langue text-muted">Available Language : <span class="langue font-weight-bold text-dark">En , Ar</span></div>
-										</div>
-									</div>
-			
-									<div class="box-down">
-										<div class="h-bg">
-											<div class="h-bg-inner"></div>
-										</div>
-			
-										<a class="cart" href="#">
-											<span class="price">$120</span>
-											<span class="add-to-cart">
-												<span class="txt">Add to card</span>
-											</span>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<% } %>
+					 <div class="Books-list-slides" style="width:100%; display:inline-flex; gap: 12px;">
+    <%for(int i=0;i<4;i++){ %>
+       <div class="container page-wrapper card">
+        <div class="page-inner">
+          <div class="row">
+            <div class="el-wrapper">
+              <div class="box-up">
+                <img class="img" src="https://covers.zlibcdn2.com/covers/books/5a/99/56/5a9956dedae2d2d9f2c27732111084c5.jpg" alt="">
+                <div class="img-info">
+                  <div class="info-inner">
+                    <span class="p-name">The Hero with a Thousand Faces</span>
+                    <span class="p-categorie">psychology</span>
+                  </div>
+                  <div class="a-langue">Available Language : <span class="langue">En , Ar</span></div>
+                </div>
+              </div>
+      
+              <div class="box-down">
+                <div class="h-bg">
+                  <div class="h-bg-inner"></div>
+                </div>
+      
+                <a class="cart" href="#">
+                  <span class="price">$120</span>
+                  <span class="add-to-cart">
+                    <span class="txt">Add to card</span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+	<%} %>
 				</div>
 
 	</div>
 
-	
+	</div>
 
 </body>
 

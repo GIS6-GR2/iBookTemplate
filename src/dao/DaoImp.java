@@ -254,7 +254,7 @@ public class DaoImp implements Dao {
 		PreparedStatement preparedStatement;
 			try {
 				connection = daoFactory.getConnection();
-				preparedStatement = connection.prepareStatement("select * from book where Id_Book = ?");
+				preparedStatement = connection.prepareStatement("select * from book,category where book.Id_category = category.Id_category && Id_Book = ?");
 				preparedStatement.setString(1, idBook);
 				ResultSet res = preparedStatement.executeQuery();
 	
@@ -455,5 +455,5 @@ public class DaoImp implements Dao {
 		return orders;
 	}
 
-	
+		
 }

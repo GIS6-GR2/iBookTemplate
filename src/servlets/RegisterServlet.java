@@ -36,9 +36,11 @@ public class RegisterServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		
+		//verefie si l'email saisiq est deja utiliser par un autre utilisateur
 		if(registerDao.getUser(email).size() != 0) {
 			request.setAttribute("invalidEmail", "This email already in use! Try another email.");
 			this.getServletContext().getRequestDispatcher("/WEB-INF/view/register.jsp").forward(request, response);
+			
 		}else {
 			Client c = new Client();
 			c.setFirstName(firstName);
@@ -53,6 +55,7 @@ public class RegisterServlet extends HttpServlet {
 			HttpSession userSession = request.getSession();
 			userSession = request.getSession();
 			userSession.setAttribute("userName", userName);
+			userSession.setAttribute("email", email);
 			response.sendRedirect("home");
 		}
 		

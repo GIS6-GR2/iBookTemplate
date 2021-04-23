@@ -43,15 +43,22 @@ public class LoginServlet extends HttpServlet {
 
 			String firstName = LoginDao.getUser(email).get(0).getFirstName();
 			String lasttName = LoginDao.getUser(email).get(0).getLastName();
+			
 			String userName = lasttName.concat(" ").concat(firstName);
 
 			userSession = request.getSession();
 			userSession.setAttribute("userName", userName);
 			userSession.setAttribute("email", email);
+			
 			response.sendRedirect("home");
+			
+						//gestion d'erreur
+			//password incorrect
 		} else if (LoginDao.getUser(email).size() == 1 && !LoginDao.getUser(email).get(0).getPassword().equals(password)) {
 			request.setAttribute("errorPassword", "invalid password! Try again.");
 			this.getServletContext().getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);
+			
+			//email incorrect; l'utilisateur n'a pas encore un compte
 		} else {
 			request.setAttribute("errorEmail", "invalid email! Try again.");
 			this.getServletContext().getRequestDispatcher("/WEB-INF/view/login.jsp").forward(request, response);

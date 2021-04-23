@@ -8,7 +8,8 @@
 	width: 325px;
 	margin: 50px auto;
 	overflow: hidden;
-	border-radius: 10px
+	border-radius: 10px;
+	    margin-top: 0px;
 }
 .categ-card-header{
 	height: auto;

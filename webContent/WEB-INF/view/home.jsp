@@ -24,7 +24,7 @@
   <body>
 	  		<%  ArrayList<Book> books = (ArrayList<Book>) request.getAttribute("books"); %>
 	 		<% ArrayList<Category> categories = (ArrayList<Category>) request.getAttribute("categories");%>
-		 	<%  %>	  
+		 	<% String searchValue = request.getParameter("searchValue"); %>	  
 		 	<%int position = 0; %>
 	  
 	  <% 
@@ -35,6 +35,8 @@
 	  	 <%           
 	  	 	// if you press the categorie 
 	  		if(idCat != 0) books.removeIf(b -> b.getIdCategory() != idCat);
+	  	 
+	  	 	if(searchValue != null) 	books.removeIf(b -> !b.getName().contains(searchValue));
 	                	 
 	                	 //find out how many Slides Yu gonna have 
 	                	 int slideNumber = 1;
@@ -46,9 +48,9 @@
   
     <!-- Section: Header -->
     <jsp:include page="../common/header.jsp"></jsp:include>
-<div class="container" style="max-width: 1268px;">
+<form class="container" style="max-width: 1268px;" action="home" method="get">
   <div class="input-group" >
-  <div class="badge" style="margin-top:385px;margin-left:135px; margin-bottom: 203px;">
+  <div class="badge" style="margin-top:230px;margin-left:135px; margin-bottom: 203px;">
    
  <div class="col-md-4 mb-3" >
  <p class="h3"><B>Search books,fine art & collectibles </br>
@@ -60,17 +62,17 @@
     
    <div class="input-group" >
  
-  <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
-    aria-describedby="search-addon" />
-  <button type="button" class="btn btn-outline-primary">search</button>
+  <input type="text" class="form-control rounded" placeholder="Search" aria-label="Search"
+    aria-describedby="search-addon" name="searchValue"/>
+  <button type="submit" class="btn btn-outline-primary">search</button>
 </div> 
     
 </div>
 
-      <img src="${pageContext.request.contextPath}/assets/images/header/headerImg.svg" class="rounded float-right" style="width:30%; height:30%;margin-left:130px;margin-top: 235px; ">
+      <img src="${pageContext.request.contextPath}/assets/images/header/headerImg.svg" class="rounded float-right" style="width:30%; height:30%;margin-left:130px;margin-top: 115px; ">
   
 </div>
-</div>
+</form>
     <!-- Section: Header -->
  		
 
@@ -87,9 +89,9 @@
 	  </div>
 	  <ul class="list-group list-group-flush categ-card-list">
 
- 			<li class="list-group-item categ-card-item all-categories" id="allCat">All Categories</li>
+ 			<li class="list-group-item categ-card-item all-categories" id="allCat" >All Categories</li>
 		<%for (Category cat:categories) {   %>
-		    <li class="list-group-item categ-card-item menu-btn"><%= cat.getName() %></li>
+		    <li class="list-group-item categ-card-item menu-btn" ><%= cat.getName() %></li>
 		<%}%>
 	  </ul>
 	</div> 
@@ -116,7 +118,7 @@
 		    <div class="Books-list-slides" style="width:100%">
 			    <%if(i!=slideNumber){ %>
 			    <%for(int j=0;j<12;j++){%>
-			       <form class="container page-wrapper card" id="BookCard" action="bookDetails" method="get">
+			       <div class="container page-wrapper card">
 			       <input type="hidden" name="idBook" value="<%=books.get(position).getIdBook()%>">
 			        <div class="page-inner">
 			          <div class="row">
@@ -137,7 +139,7 @@
 			                  <div class="h-bg-inner"></div>
 			                </div>
 			      
-			                <a class="cart" href="javascript:{}" onclick="document.getElementById('BookCard').submit();">
+			                <a class="cart" href="bookDetails?idBook=<%= books.get(position).getIdBook()%>">
 			                  <span class="price"><%= books.get(position).getPrice() %>$</span>
 			                  <span class="add-to-cart">
 			                    <span class="txt">Add to card</span>
@@ -147,7 +149,7 @@
 			            </div>
 			          </div>
 			        </div>
-			      </form>  
+			      </div>  
 				<%  position++; } %>
 				<%} %>
 		    </div>
@@ -155,7 +157,7 @@
 	   
 			 <div class="Books-list-slides" style="width:100%">
 				<%for(int j=0;j<(books.size() - ((slideNumber-1) * 12));j++){%>
-			       <form class="container page-wrapper card" id="BookCard" action="bookDetails" method="get">
+			       <div class="container page-wrapper card">
 			        <input type="hidden" name="idBook" value="<%=books.get(position).getIdBook()%>">
 			        <div class="page-inner">
 			          <div class="row">
@@ -176,7 +178,7 @@
 			                  <div class="h-bg-inner"></div>
 			                </div>
 			      
-			                <a class="cart" href="javascript:{}" onclick="document.getElementById('BookCard').submit();">
+			                <a class="cart"  href="bookDetails?idBook=<%= books.get(position).getIdBook()%>">
 			                  <span class="price"><%= books.get(position).getPrice() %>$</span>
 			                  <span class="add-to-cart">
 			                    <span class="txt">Add to card</span>
@@ -186,7 +188,7 @@
 			            </div>
 			          </div>
 			        </div>
-			      </form>  
+			      </div>  
 				<%  position++; } %>
 			  </div>
    </div>
